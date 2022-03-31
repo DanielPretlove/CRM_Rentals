@@ -1,6 +1,8 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import * as PostgresConnector from './config/db.config';
 import * as userRoute from './controllers/auth.controllers';
+import dotenv from 'dotenv';
+dotenv.config();
 const app: Application = express();
 const port = 3001;
 
