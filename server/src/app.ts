@@ -1,16 +1,14 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
-import * as PostgresConnector from './config/db.config';
-import * as userRoute from './controllers/auth.controllers';
+import express, { Router, Application, Request, Response, NextFunction } from 'express';
+import * as PostgresConnector from './modals/db.modal';
 import dotenv from 'dotenv';
+import routes from './routes/auth.routes';
 dotenv.config();
+
 const app: Application = express();
 const port = 3001;
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-
-app.get('/users', userRoute.getUsers);
-app.get('/users/:id', userRoute.getUserById);
-app.post('/register', userRoute.addUser);
-app.put('/forgotpassword', userRoute.updateUserDetails)
+app.use(routes);
+app.use(PostgresConnector.execute);
 app.listen(port);
+
