@@ -2,10 +2,9 @@
 // this is actually for database table scheme
 
 // tasks to do this week:
-// 3: setup routes in the routes folder
 // 5: start react Auth setup
 // 6: create the whole ui for the login/register and forgot password authentication
-// 7: create middle for authentication
+// 7: create middleware for authentication
 
 import * as db from '../config/db.config'
 
